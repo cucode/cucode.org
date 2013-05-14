@@ -8,6 +8,7 @@ gem 'redcarpet'
 gem 'yajl-ruby'
 gem 'pygments.rb'
 gem 'activesupport'
+gem 'kramdown'
 
 group :development do
   gem 'mime-types'
