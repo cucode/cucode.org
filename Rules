@@ -21,7 +21,8 @@ end
 
 compile '/' do
   filter :erb
-  layout 'default'
+  filter :kramdown
+  layout 'home'
 end
 
 compile '*' do
@@ -29,11 +30,8 @@ compile '*' do
     # don’t filter binary items
   elsif item[:extension] == "html"
     filter :erb
-    layout 'article'
-  else
-    filter :erb
-    filter :redcarpet
-    layout 'article'
+    filter :kramdown
+    layout 'home'
   end
 end
 
