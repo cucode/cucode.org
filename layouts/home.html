@@ -58,6 +58,9 @@
         </p>
       </footer>
     </div>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="/assets/js/libs/jquery-1.9.1.min.js"><\/script>')</script>
+
     <script src="/assets/bootstrap/js/bootstrap.min.js"></script>
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -68,6 +71,19 @@
       ga('create', 'UA-40456683-1', 'cucode.org');
       ga('send', 'pageview');
 
+    </script>
+    <script>
+      $(function() {
+        /* KLUDGE, unattractive and someone is bound to break it eventually,
+            but it works for now */ 
+        $('ul.nav li').removeClass('active');
+        var page = window.location.pathname.split('/')[1];
+        if ( page.length ) {
+          $( '.navbar a[href^="/' + page +'"]' ).parent('li').addClass('active');
+        } else {
+          $( '.navbar a[href="/"]' ).parent('li').addClass('active');
+        }   
+      });
     </script>
   </body>
 </html>
